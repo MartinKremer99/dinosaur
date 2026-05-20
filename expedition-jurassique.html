@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expedition Jurassique — Ein Wochenende bei den Giganten · 22.–24. Mai 2026</title>
+<meta name="description" content="Fünf kuratierte Wochenend-Expeditionen ab Luxemburg — 22. bis 24. Mai 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Special+Elite&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bone:        #f1e7d3;
+    --bone-warm:   #e8dabf;
+    --parchment:   #d9c69e;
+    --amber:       #c97b2c;
+    --amber-deep:  #8d4a16;
+    --rust:        #6b2e0e;
+    --moss:        #4a5a32;
+    --moss-deep:   #2c3820;
+    --tar:         #1c1208;
+    --ink:         #2a1c10;
+    --shadow:      rgba(28, 18, 8, 0.18);
+    --grain-op:    0.06;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--bone);
+    color: var(--ink);
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Grain & paper texture overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(141, 74, 22, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(74, 90, 50, 0.05) 0%, transparent 55%),
+      url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.1 0 0 0 0 0.05 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
+    opacity: var(--grain-op);
+    mix-blend-mode: multiply;
+  }
+
+  /* Topographic background lines */
+  .topo-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.07;
+    background-image:
+      radial-gradient(ellipse 800px 400px at 10% 20%, var(--amber-deep) 0%, transparent 60%),
+      radial-gradient(ellipse 600px 600px at 90% 80%, var(--moss-deep) 0%, transparent 60%);
+  }
+
+  /* ----- HERO ----- */
+  .hero {
+    min-height: 100vh;
+    padding: 80px 6vw 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background:
+      linear-gradient(180deg, transparent 0%, var(--bone) 100%),
+      radial-gradient(ellipse at top, rgba(201, 123, 44, 0.15) 0%, transparent 70%);
+  }
+
+  .kicker {
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .kicker::before, .kicker::after {
+    content: "";
+    flex: 0 0 60px;
+    height: 1px;
+    background: var(--amber-deep);
+    opacity: 0.5;
+  }
+
+  .kicker::after { flex: 1; max-width: 200px; }
+
+  h1.title {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: clamp(48px, 9vw, 140px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--tar);
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  h1.title em {
+    font-style: italic;
+    color: var(--amber-deep);
+    font-family: 'Crimson Pro', serif;
+    font-weight: 400;
+    display: block;
+    font-size: 0.4em;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  .lede {
+    max-width: 640px;
+    font-size: clamp(17px, 1.4vw, 22px);
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 32px 0 56px;
+    font-weight: 400;
+  }
+
+  .lede .drop {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 2.2em;
+    line-height: 0.8;
+    float: left;
+    padding: 8px 12px 0 0;
+    color: var(--amber-deep);
+  }
+
+  .trip-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 24px 0;
+    max-width: 900px;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 140px;
+    padding: 0 24px;
+    border-right: 1px dashed rgba(42, 28, 16, 0.3);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat .num {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 56px);
+    color: var(--amber-deep);
+    line-height: 1;
+  }
+
+  .stat .label {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+
+  .hero-dino {
+    position: absolute;
+    right: -5%;
+    bottom: 5%;
+    width: min(45vw, 600px);
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-dino svg {
+    width: 100%;
+    height: auto;
+    animation: graze 12s ease-in-out infinite;
+  }
+
+  @keyframes graze {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-8px) rotate(-0.5deg); }
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--amber-deep);
+    text-transform: uppercase;
+    opacity: 0.7;
+    animation: bob 2.4s ease-in-out infinite;
+  }
+
+  .scroll-cue::after {
+    content: "↓";
+    display: block;
+    margin-top: 6px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.5; }
+    50%      { transform: translate(-50%, 4px); opacity: 1; }
+  }
+
+  /* ----- DIVIDER ----- */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 80px 6vw 40px;
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+  }
+
+  .divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--amber-deep), transparent);
+  }
+
+  /* ----- DESTINATION CARDS ----- */
+  .destinations {
+    padding: 20px 6vw 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+  }
+
+  .card.reverse { grid-template-columns: 1.2fr 1fr; }
+  .card.reverse .card-visual { order: 2; }
+  .card.reverse .card-content { order: 1; }
+
+  .card-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    background:
+      linear-gradient(135deg, var(--bone-warm) 0%, var(--parchment) 100%);
+    border: 1px solid var(--ink);
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 var(--bone),
+      0 2px 0 var(--ink),
+      0 20px 40px -10px var(--shadow);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card:hover .card-visual {
+    transform: translateY(-6px);
+  }
+
+  .card-visual::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px dashed rgba(42, 28, 16, 0.25);
+    pointer-events: none;
+  }
+
+  .card-visual .dino-svg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .card-visual .dino-svg svg {
+    width: 100%;
+    height: 100%;
+    max-height: 380px;
+    filter: drop-shadow(2px 4px 0 rgba(42, 28, 16, 0.15));
+  }
+
+  .card-visual .specimen-tag {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    z-index: 2;
+  }
+
+  .card-visual .specimen-no {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 56px;
+    color: var(--ink);
+    opacity: 0.15;
+    line-height: 1;
+  }
+
+  .card-visual .latin {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink);
+    opacity: 0.7;
+    text-align: center;
+    border-top: 1px solid rgba(42, 28, 16, 0.2);
+    padding-top: 12px;
+  }
+
+  .card-content {
+    padding: 0;
+  }
+
+  .card-content .country {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .card-content .country::before {
+    content: "◆";
+    color: var(--amber);
+  }
+
+  .card-content h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--tar);
+    margin-bottom: 8px;
+  }
+
+  .card-content .location {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--rust);
+    margin-bottom: 24px;
+  }
+
+  .card-content .pitch {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 28px;
+    max-width: 540px;
+  }
+
+  .card-content .pitch strong {
+    background: linear-gradient(180deg, transparent 60%, rgba(201, 123, 44, 0.3) 60%);
+    padding: 0 2px;
+    font-weight: 600;
+  }
+
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    margin-bottom: 24px;
+    max-width: 540px;
+  }
+
+  .data-cell {
+    background: var(--bone-warm);
+    padding: 14px 16px;
+  }
+
+  .data-cell .data-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin-bottom: 4px;
+  }
+
+  .data-cell .data-value {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--tar);
+    line-height: 1.1;
+  }
+
+  .data-cell .data-unit {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--rust);
+    margin-left: 2px;
+  }
+
+  .vibes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .vibe-tag {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    border-radius: 999px;
+  }
+
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Cinzel', serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bone);
+    background: var(--tar);
+    padding: 14px 28px;
+    text-decoration: none;
+    border: 1px solid var(--tar);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-btn::after {
+    content: "→";
+    font-family: serif;
+    transition: transform 0.3s ease;
+  }
+
+  .map-btn:hover {
+    background: var(--amber-deep);
+    border-color: var(--amber-deep);
+  }
+
+  .map-btn:hover::after {
+    transform: translateX(4px);
+  }
+
+  /* ----- COMPARISON TABLE ----- */
+  .comparison-section {
+    padding: 80px 6vw;
+    background:
+      linear-gradient(180deg, var(--bone) 0%, var(--bone-warm) 100%);
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-header .kicker {
+    justify-content: center;
+  }
+
+  .section-header .kicker::after { flex: 0 0 60px; max-width: 60px; }
+
+  .section-header h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    color: var(--tar);
+    margin-top: 16px;
+  }
+
+  .section-header h2 em {
+    font-style: italic;
+    color: var(--amber-deep);
+    font-family: 'Crimson Pro', serif;
+    font-weight: 400;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Crimson Pro', serif;
+    border: 1px solid var(--ink);
+    background: var(--bone);
+    box-shadow: 0 20px 40px -20px var(--shadow);
+  }
+
+  .comparison-table thead {
+    background: var(--tar);
+    color: var(--bone);
+  }
+
+  .comparison-table th {
+    padding: 18px 16px;
+    text-align: left;
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-right: 1px solid rgba(241, 231, 211, 0.15);
+  }
+
+  .comparison-table th:last-child { border-right: none; }
+
+  .comparison-table td {
+    padding: 18px 16px;
+    border-bottom: 1px solid rgba(42, 28, 16, 0.1);
+    border-right: 1px solid rgba(42, 28, 16, 0.08);
+    vertical-align: middle;
+  }
+
+  .comparison-table tbody tr:last-child td { border-bottom: none; }
+  .comparison-table td:last-child { border-right: none; }
+
+  .comparison-table tbody tr:hover {
+    background: rgba(201, 123, 44, 0.08);
+  }
+
+  .comparison-table .name-cell {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--tar);
+    font-size: 16px;
+  }
+
+  .comparison-table .name-cell .sub {
+    display: block;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--rust);
+    font-size: 13px;
+    margin-top: 2px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .comparison-table .price-cell {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--amber-deep);
+    font-size: 17px;
+  }
+
+  .comparison-table .dist-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .bar {
+    display: inline-block;
+    height: 6px;
+    background: var(--amber);
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  /* ----- VERDICT ----- */
+  .verdict {
+    padding: 100px 6vw;
+    background:
+      radial-gradient(ellipse at center, var(--moss-deep) 0%, var(--tar) 100%);
+    color: var(--bone);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verdict::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(201, 123, 44, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(201, 123, 44, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .verdict-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .verdict .kicker { color: var(--amber); }
+  .verdict .kicker::before, .verdict .kicker::after { background: var(--amber); }
+
+  .verdict h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.05;
+    margin: 24px 0 32px;
+    color: var(--bone);
+  }
+
+  .verdict h2 em {
+    font-style: italic;
+    color: var(--amber);
+    font-family: 'Crimson Pro', serif;
+    font-weight: 400;
+  }
+
+  .verdict p {
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.7;
+    color: var(--bone-warm);
+    margin-bottom: 24px;
+  }
+
+  .verdict .winner-card {
+    margin-top: 56px;
+    padding: 40px;
+    border: 1px solid var(--amber);
+    background: rgba(28, 18, 8, 0.4);
+    backdrop-filter: blur(4px);
+    text-align: left;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .verdict .winner-card .badge {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--tar);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .verdict .winner-card .pick-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--bone);
+    margin-bottom: 4px;
+  }
+
+  .verdict .winner-card .pick-why {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--bone-warm);
+    line-height: 1.5;
+  }
+
+  /* ----- FOOTER ----- */
+  footer {
+    padding: 60px 6vw 80px;
+    text-align: center;
+    background: var(--bone);
+    border-top: 1px solid var(--ink);
+  }
+
+  footer .signoff {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  footer .signoff strong {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--amber-deep);
+  }
+
+  footer .fineprint {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.5;
+  }
+
+  /* ----- ANIMATIONS ----- */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ----- RESPONSIVE ----- */
+  @media (max-width: 900px) {
+    .card,
+    .card.reverse {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .card.reverse .card-visual { order: 0; }
+    .card.reverse .card-content { order: 1; }
+    .card-visual { aspect-ratio: 5/4; max-height: 400px; }
+    .destinations { gap: 60px; padding: 20px 6vw 60px; }
+    .hero-dino { display: none; }
+    .verdict .winner-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 16px;
+    }
+    .verdict .winner-card .badge { margin: 0 auto; }
+    .comparison-section { padding: 60px 4vw; overflow-x: auto; }
+    .comparison-table { font-size: 14px; min-width: 700px; }
+    .stat { min-width: 100px; padding: 0 12px; }
+  }
+
+  @media (max-width: 600px) {
+    .data-grid { grid-template-columns: 1fr 1fr; }
+    .data-grid .data-cell:last-child { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topo-bg"></div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-dino" aria-hidden="true">
+    <!-- Faded Brachiosaurus silhouette -->
+    <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--tar)" d="M 50 380 Q 60 340 100 330 Q 130 320 160 325 L 180 250 Q 195 180 220 130 Q 245 80 290 60 Q 330 45 360 55 Q 380 62 385 80 Q 388 95 375 105 Q 365 112 345 110 Q 330 108 320 118 Q 312 128 318 145 Q 325 165 335 190 Q 345 220 340 260 L 335 300 Q 360 290 390 295 Q 430 300 470 320 Q 510 340 530 365 Q 545 385 545 410 L 540 430 Q 530 445 510 445 L 470 445 L 465 460 L 450 460 L 450 445 L 360 445 L 355 460 L 340 460 L 340 445 L 280 445 L 275 460 L 260 460 L 260 445 L 180 445 L 175 460 L 160 460 L 160 445 L 100 445 Q 75 445 60 430 Q 50 415 50 395 Z M 350 75 Q 358 73 363 78 Q 365 82 362 86 Q 358 90 352 88 Q 348 85 350 75 Z" opacity="0.7"/>
+    </svg>
+  </div>
+
+  <p class="kicker">Bulletin Nr. 001 · Luxemburg → Überall · 22.–24. Mai 2026</p>
+  <h1 class="title">
+    Ein Wochenende<br>bei den Giganten
+    <em>Expedition Jurassique — wähle dein Revier</em>
+  </h1>
+  <p class="lede">
+    <span class="drop">F</span>ünf sorgfältig ausgewählte Quartiere für ein 48-Stunden-Abenteuer mit deiner Lieblings-Paläontologin. Jeder Kandidat wurde nach den Metriken geprüft, die wirklich zählen: wie weit wir fahren, was wir zahlen, und welches prähistorische Wesen am besten über das Wochenende wacht. Wähle ein Tier. Der Autoschlüssel hängt bereit.
+  </p>
+
+  <div class="trip-stats">
+    <div class="stat">
+      <div class="num">5</div>
+      <div class="label">Expeditionen</div>
+    </div>
+    <div class="stat">
+      <div class="num">2</div>
+      <div class="label">Nächte</div>
+    </div>
+    <div class="stat">
+      <div class="num">1</div>
+      <div class="label">Abenteurerin</div>
+    </div>
+    <div class="stat">
+      <div class="num">0</div>
+      <div class="label">Meteoriten</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Expedition starten</div>
+</header>
+
+<!-- ============ DIVIDER ============ -->
+<div class="divider">⚹ Die Fossilien ⚹</div>
+
+<!-- ============ DESTINATION CARDS ============ -->
+<section class="destinations">
+
+  <!-- ===== CARD 1 — JAMAGNE / BRACHIOSAURUS ===== -->
+  <article class="card fade-in">
+    <div class="card-visual">
+      <div class="specimen-tag">Fossil Nr.</div>
+      <div class="specimen-no">01</div>
+      <div class="dino-svg" aria-hidden="true">
+        <!-- Brachiosaurus -->
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#2a1c10" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+            <!-- Body -->
+            <path d="M 80 360 Q 85 310 110 295 Q 140 280 170 285 L 180 240 Q 195 175 225 135 Q 255 95 295 80 Q 330 70 355 80 Q 380 92 380 115 Q 378 132 360 138 Q 345 142 330 138 Q 318 135 315 148 Q 313 162 325 185 Q 340 215 340 250 L 335 285 Q 365 280 395 285 Q 430 295 460 320 Q 480 345 478 375 L 472 400 Q 460 415 440 415 L 410 415 L 405 432 L 388 432 L 388 415 L 310 415 L 305 432 L 288 432 L 288 415 L 240 415 L 235 432 L 218 432 L 218 415 L 165 415 L 160 432 L 143 432 L 143 415 L 110 415 Q 88 412 80 395 Z" fill="#4a5a32"/>
+            <!-- Eye -->
+            <circle cx="350" cy="100" r="3" fill="#2a1c10"/>
+            <!-- Smile -->
+            <path d="M 365 115 Q 372 118 378 113" stroke-width="1.5"/>
+            <!-- Belly highlight -->
+            <path d="M 180 380 Q 280 395 380 380" stroke-width="1.5" opacity="0.4"/>
+            <!-- Plate details -->
+            <path d="M 200 270 Q 215 260 230 270" stroke-width="1.2" opacity="0.5"/>
+            <path d="M 240 240 Q 255 230 270 240" stroke-width="1.2" opacity="0.5"/>
+            <path d="M 280 215 Q 295 205 310 215" stroke-width="1.2" opacity="0.5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="latin">Brachiosaurus altithoracicus · «der sanfte Bergriese»</div>
+    </div>
+
+    <div class="card-content">
+      <div class="country">Frankreich · Vosges · Grand Est</div>
+      <h2>Hôtel de la Jamagne &amp; Spa</h2>
+      <div class="location">Gérardmer, am Ufer des Gletschersees</div>
+      <p class="pitch">
+        Ein <strong>friedliches Kiefern-und-Wasser-Tal</strong> in den Vogesen, wenige Minuten von der Seepromenade. Indoor-Pool, ruhiger Spa mit Sauna und Hammam, gutes Restaurant — und vor allem: der <strong>nächste Spot auf der Liste</strong>. Freitagabend ankommen, ohne dass jemand schmollend aussteigt.
+      </p>
+
+      <div class="data-grid">
+        <div class="data-cell">
+          <div class="data-label">Entfernung</div>
+          <div class="data-value">260<span class="data-unit"> km</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">Fahrzeit</div>
+          <div class="data-value">~3<span class="data-unit"> Std</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">2 Nächte · 2 Pers.</div>
+          <div class="data-value">240<span class="data-unit"> – 300 €</span></div>
+        </div>
+      </div>
+
+      <div class="vibes">
+        <span class="vibe-tag">See + Wald</span>
+        <span class="vibe-tag">Spa</span>
+        <span class="vibe-tag">Indoor-Pool</span>
+        <span class="vibe-tag">Gemütlich</span>
+        <span class="vibe-tag">Kurze Anreise</span>
+      </div>
+
+      <a class="map-btn" href="https://www.google.com/maps/place/H%C3%B4tel+de+la+Jamagne/@48.072944,6.8681211,17z/" target="_blank" rel="noopener">Auf Karte ansehen</a>
+    </div>
+  </article>
+
+  <!-- ===== CARD 2 — KNOKKE / MOSASAURUS ===== -->
+  <article class="card reverse fade-in">
+    <div class="card-visual">
+      <div class="specimen-tag">Fossil Nr.</div>
+      <div class="specimen-no">02</div>
+      <div class="dino-svg" aria-hidden="true">
+        <!-- Mosasaurus -->
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#2a1c10" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+            <!-- Body curving like a swimming sea creature -->
+            <path d="M 60 280 Q 50 250 70 235 Q 95 220 130 230 Q 165 240 200 250 Q 250 260 290 245 Q 330 230 360 215 Q 390 200 400 175 L 405 145 Q 410 130 425 125 L 460 105 L 475 95 L 470 115 L 455 130 Q 440 145 435 165 Q 432 195 445 215 Q 455 230 450 245 Q 442 258 425 255 Q 405 250 380 260 Q 350 275 320 285 Q 280 295 240 295 Q 200 295 165 290 Q 130 285 100 295 Q 75 305 60 295 Z" fill="#4a5a32"/>
+            <!-- Eye -->
+            <circle cx="455" cy="115" r="2.5" fill="#2a1c10"/>
+            <!-- Mouth line -->
+            <path d="M 435 130 L 470 120" stroke-width="1.5"/>
+            <!-- Teeth -->
+            <path d="M 442 128 L 444 134 M 450 125 L 452 131 M 458 122 L 460 128" stroke-width="1"/>
+            <!-- Front flipper -->
+            <path d="M 320 285 Q 315 320 295 335 Q 280 345 265 340 Q 275 320 285 305 Q 295 290 305 285 Z" fill="#4a5a32"/>
+            <!-- Back flipper -->
+            <path d="M 150 290 Q 140 325 120 340 Q 105 348 92 343 Q 100 322 112 308 Q 125 293 140 290 Z" fill="#4a5a32"/>
+            <!-- Tail fluke -->
+            <path d="M 60 280 L 35 260 L 25 240 L 45 250 L 30 220 L 50 235 L 60 250 Z" fill="#4a5a32"/>
+            <!-- Wave lines -->
+            <path d="M 80 410 Q 130 400 180 410 Q 230 420 280 410 Q 330 400 380 410 Q 420 418 450 410" stroke-width="1.2" opacity="0.4"/>
+            <path d="M 100 430 Q 150 420 200 430 Q 250 440 300 430 Q 350 420 400 430" stroke-width="1.2" opacity="0.3"/>
+            <!-- Scale dots -->
+            <circle cx="240" cy="265" r="2" fill="#2a1c10" opacity="0.4"/>
+            <circle cx="280" cy="260" r="2" fill="#2a1c10" opacity="0.4"/>
+            <circle cx="200" cy="270" r="2" fill="#2a1c10" opacity="0.4"/>
+            <circle cx="320" cy="250" r="2" fill="#2a1c10" opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="latin">Mosasaurus zelandicus · «der elegante Meeresjäger»</div>
+    </div>
+
+    <div class="card-content">
+      <div class="country">Belgien · Küste · Knokke-Heist</div>
+      <h2>Beachfront Boutiquehotel</h2>
+      <div class="location">Knokke-Heist, direkt an der Nordsee</div>
+      <p class="pitch">
+        Die <strong>Boutique-Strandoption</strong>: direkt am Meer, mit Dünen und Promenade vor der Tür. Knokke-Zoute ist das schickste Revier an der belgischen Küste — salzige Brise, Muscheln am Strand, und ein Hauch von Mosasaurus-Flair. Wochenendpreise tendenziell höher, dafür maximaler Meeres-Vibe.
+      </p>
+
+      <div class="data-grid">
+        <div class="data-cell">
+          <div class="data-label">Entfernung</div>
+          <div class="data-value">354<span class="data-unit"> km</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">Fahrzeit</div>
+          <div class="data-value">~3,5<span class="data-unit"> Std</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">2 Nächte · 2 Pers.</div>
+          <div class="data-value">300<span class="data-unit"> – 600 €</span></div>
+        </div>
+      </div>
+
+      <div class="vibes">
+        <span class="vibe-tag">Meer</span>
+        <span class="vibe-tag">Boutique</span>
+        <span class="vibe-tag">Meerblick</span>
+        <span class="vibe-tag">Dünen</span>
+        <span class="vibe-tag">Chic</span>
+      </div>
+
+      <a class="map-btn" href="https://www.google.com/maps/place/Beachfront+Boutiquehotel/@50.5601623,3.5242585,8z/" target="_blank" rel="noopener">Auf Karte ansehen</a>
+    </div>
+  </article>
+
+  <!-- ===== CARD 3 — HOERI / PLESIOSAURUS ===== -->
+  <article class="card fade-in">
+    <div class="card-visual">
+      <div class="specimen-tag">Fossil Nr.</div>
+      <div class="specimen-no">03</div>
+      <div class="dino-svg" aria-hidden="true">
+        <!-- Plesiosaurus -->
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#2a1c10" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+            <!-- Body (oval) -->
+            <ellipse cx="280" cy="280" rx="140" ry="55" fill="#4a5a32"/>
+            <!-- Long curving neck -->
+            <path d="M 200 250 Q 170 210 150 165 Q 135 125 145 95 Q 158 65 195 60 Q 220 60 230 75 Q 235 88 225 95 Q 215 100 210 92 Q 207 85 198 88 Q 188 92 188 105 Q 188 125 195 145 Q 205 170 220 195 Q 230 220 235 245 Z" fill="#4a5a32"/>
+            <!-- Head -->
+            <circle cx="200" cy="78" r="13" fill="#4a5a32"/>
+            <!-- Eye -->
+            <circle cx="195" cy="73" r="2.5" fill="#2a1c10"/>
+            <!-- Smile -->
+            <path d="M 188 84 Q 195 88 205 85" stroke-width="1.5"/>
+            <!-- Front flippers -->
+            <path d="M 230 320 Q 215 360 195 380 Q 180 390 170 380 Q 180 360 200 340 Q 215 325 225 320 Z" fill="#4a5a32"/>
+            <path d="M 330 320 Q 320 355 305 375 Q 295 385 285 378 Q 290 358 305 340 Q 320 325 330 320 Z" fill="#4a5a32"/>
+            <!-- Back flippers -->
+            <path d="M 380 305 Q 405 335 415 360 Q 418 372 408 372 Q 395 365 380 345 Q 370 330 372 308 Z" fill="#4a5a32"/>
+            <!-- Tail -->
+            <path d="M 420 280 Q 450 270 470 255 Q 478 248 478 258 Q 465 275 445 285 Q 430 290 420 290 Z" fill="#4a5a32"/>
+            <!-- Lake ripples -->
+            <ellipse cx="280" cy="420" rx="180" ry="6" fill="none" stroke-width="1.2" opacity="0.4"/>
+            <ellipse cx="280" cy="440" rx="140" ry="4" fill="none" stroke-width="1.2" opacity="0.3"/>
+            <ellipse cx="280" cy="455" rx="100" ry="3" fill="none" stroke-width="1.2" opacity="0.2"/>
+            <!-- Belly highlight -->
+            <ellipse cx="280" cy="290" rx="100" ry="25" fill="#2a1c10" opacity="0.08"/>
+          </g>
+        </svg>
+      </div>
+      <div class="latin">Plesiosaurus bodensiae · «der Flüsterer am Seegrund»</div>
+    </div>
+
+    <div class="card-content">
+      <div class="country">Deutschland · Bodensee · Baden-Württemberg</div>
+      <h2>Hotel Hoeri am Bodensee</h2>
+      <div class="location">Gaienhofen, direkt am Zeller See</div>
+      <p class="pitch">
+        Der <strong>Wellness-Pick</strong>: grosser Innen-/Aussenpool, mehrere Saunen, Strand am See, Fisch-Dinner auf der Terrasse. Drei Länder in Reichweite (Schweiz, Österreich). Frühstück und Spa oft inklusive — die Anreise ist etwas länger, wird aber Teil des Abenteuers.
+      </p>
+
+      <div class="data-grid">
+        <div class="data-cell">
+          <div class="data-label">Entfernung</div>
+          <div class="data-value">400<span class="data-unit"> km</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">Fahrzeit</div>
+          <div class="data-value">~4,5<span class="data-unit"> Std</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">2 Nächte · 2 Pers.</div>
+          <div class="data-value">~340<span class="data-unit"> €</span></div>
+        </div>
+      </div>
+
+      <div class="vibes">
+        <span class="vibe-tag">See</span>
+        <span class="vibe-tag">Grosser Spa</span>
+        <span class="vibe-tag">Wellness</span>
+        <span class="vibe-tag">Frühstück inkl.</span>
+        <span class="vibe-tag">Längere Anreise</span>
+      </div>
+
+      <a class="map-btn" href="https://www.google.com/maps/place/Hotel+HOERI+am+Bodensee/@48.6662669,6.2104464,8z/" target="_blank" rel="noopener">Auf Karte ansehen</a>
+    </div>
+  </article>
+
+  <!-- ===== CARD 4 — LE TOUQUET / PTERANODON ===== -->
+  <article class="card reverse fade-in">
+    <div class="card-visual">
+      <div class="specimen-tag">Fossil Nr.</div>
+      <div class="specimen-no">04</div>
+      <div class="dino-svg" aria-hidden="true">
+        <!-- Pteranodon -->
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#2a1c10" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+            <!-- Body -->
+            <ellipse cx="250" cy="270" rx="35" ry="60" fill="#4a5a32"/>
+            <!-- Left wing -->
+            <path d="M 220 245 Q 175 230 130 220 Q 85 215 50 235 Q 35 245 50 250 Q 90 248 130 252 Q 100 260 70 275 Q 55 285 70 290 Q 110 285 145 280 Q 180 275 220 285 Z" fill="#4a5a32"/>
+            <!-- Right wing -->
+            <path d="M 280 245 Q 325 230 370 220 Q 415 215 450 235 Q 465 245 450 250 Q 410 248 370 252 Q 400 260 430 275 Q 445 285 430 290 Q 390 285 355 280 Q 320 275 280 285 Z" fill="#4a5a32"/>
+            <!-- Head + crest + beak -->
+            <path d="M 240 215 Q 235 195 245 180 L 270 155 Q 280 145 290 150 L 310 165 Q 320 175 315 185 Q 305 195 290 195 L 275 200 L 320 220 Q 340 225 355 235 Q 360 240 355 245 Q 340 245 320 240 L 285 230 Q 270 230 260 235 L 250 240 Z" fill="#4a5a32"/>
+            <!-- Eye -->
+            <circle cx="285" cy="190" r="2.5" fill="#2a1c10"/>
+            <!-- Crest detail -->
+            <path d="M 275 175 Q 287 162 305 168" stroke-width="1.2" opacity="0.6"/>
+            <!-- Legs -->
+            <path d="M 240 325 L 235 360 L 220 365 M 240 350 L 245 365" stroke-width="2"/>
+            <path d="M 260 325 L 268 360 L 285 365 M 268 352 L 265 365" stroke-width="2"/>
+            <!-- Wing membrane lines -->
+            <path d="M 200 250 L 70 245" stroke-width="1" opacity="0.4"/>
+            <path d="M 210 265 L 90 280" stroke-width="1" opacity="0.4"/>
+            <path d="M 300 250 L 430 245" stroke-width="1" opacity="0.4"/>
+            <path d="M 290 265 L 410 280" stroke-width="1" opacity="0.4"/>
+            <!-- Cloud lines below -->
+            <path d="M 100 410 Q 150 405 200 410" stroke-width="1.2" opacity="0.3"/>
+            <path d="M 250 425 Q 300 420 350 425" stroke-width="1.2" opacity="0.3"/>
+            <path d="M 150 445 Q 200 440 250 445" stroke-width="1.2" opacity="0.25"/>
+          </g>
+        </svg>
+      </div>
+      <div class="latin">Pteranodon littoralis · «der elegante Küstenflieger»</div>
+    </div>
+
+    <div class="card-content">
+      <div class="country">Frankreich · Côte d'Opale · Hauts-de-France</div>
+      <h2>Le Touquet–Paris-Plage</h2>
+      <div class="location">Die ganze Stadt — Hotel frei wählbar</div>
+      <p class="pitch">
+        Kein einzelnes Hotel, sondern <strong>eine ganze schicke Küstenstadt</strong>: Belle-Époque-Architektur, Pinienwald dahinter, endloser Strand davor. Das <em>Hôtel Barrière Le Westminster</em> für Art-deco-Luxus, <em>Le Manoir</em> für Landhaus-Charme — oder wir wählen gemeinsam. Maximale Flexibilität.
+      </p>
+
+      <div class="data-grid">
+        <div class="data-cell">
+          <div class="data-label">Entfernung</div>
+          <div class="data-value">340<span class="data-unit"> – 400 km</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">Fahrzeit</div>
+          <div class="data-value">~4<span class="data-unit"> Std</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">2 Nächte · 2 Pers.</div>
+          <div class="data-value">240<span class="data-unit"> – 500 €</span></div>
+        </div>
+      </div>
+
+      <div class="vibes">
+        <span class="vibe-tag">Strandstadt</span>
+        <span class="vibe-tag">Chic</span>
+        <span class="vibe-tag">Restaurants</span>
+        <span class="vibe-tag">Belle Époque</span>
+        <span class="vibe-tag">Flexibles Budget</span>
+      </div>
+
+      <a class="map-btn" href="https://www.google.com/maps/place/Le+Touquet-Paris-Plage,+Frankreich/@50.5119864,1.5642822,13z/" target="_blank" rel="noopener">Auf Karte ansehen</a>
+    </div>
+  </article>
+
+  <!-- ===== CARD 5 — LE DONJON / T-REX ===== -->
+  <article class="card fade-in">
+    <div class="card-visual">
+      <div class="specimen-tag">Fossil Nr.</div>
+      <div class="specimen-no">05</div>
+      <div class="dino-svg" aria-hidden="true">
+        <!-- T-Rex -->
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#2a1c10" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+            <!-- Tail -->
+            <path d="M 380 270 Q 420 260 450 270 Q 470 280 475 295 Q 470 300 460 297 Q 435 290 410 295 Q 385 300 365 290 Z" fill="#4a5a32"/>
+            <!-- Body -->
+            <path d="M 200 250 Q 195 200 220 175 Q 250 155 290 160 Q 335 170 365 200 Q 395 235 395 290 Q 390 320 365 335 L 340 340 L 335 365 Q 330 380 318 380 L 305 380 Q 295 378 295 365 L 295 340 L 270 340 L 268 365 Q 263 380 250 380 L 238 380 Q 228 378 228 365 L 230 335 L 220 320 Q 205 295 200 270 Z" fill="#4a5a32"/>
+            <!-- Head -->
+            <path d="M 195 230 Q 175 218 158 205 Q 140 190 130 170 Q 125 155 135 150 L 155 145 Q 175 145 195 155 L 215 165 Q 225 175 220 185 Q 215 195 200 195 L 175 197 L 210 215 Z" fill="#4a5a32"/>
+            <!-- Eye -->
+            <circle cx="165" cy="170" r="3" fill="#2a1c10"/>
+            <circle cx="166" cy="169" r="1" fill="#f1e7d3"/>
+            <!-- Teeth -->
+            <path d="M 145 188 L 148 198 L 153 188 L 156 198 L 161 188 L 164 198 L 170 188 L 173 198" stroke-width="1.2"/>
+            <!-- Mouth line -->
+            <path d="M 135 185 L 200 195" stroke-width="1.5"/>
+            <!-- Nostril -->
+            <circle cx="138" cy="165" r="1.5" fill="#2a1c10"/>
+            <!-- Tiny arms -->
+            <path d="M 245 220 L 260 235 L 255 245 L 248 240 M 260 235 L 270 232 M 260 235 L 268 240" stroke-width="2"/>
+            <path d="M 260 215 L 280 225 L 278 235 L 270 232" stroke-width="2"/>
+            <!-- Legs (powerful) -->
+            <path d="M 295 340 Q 290 380 280 405 Q 270 420 285 425 L 320 425 L 325 415 Q 322 395 322 380 L 320 340" stroke-width="2.5"/>
+            <path d="M 250 340 Q 245 380 235 405 Q 225 420 240 425 L 275 425 L 280 415 Q 277 395 277 380 L 275 340" stroke-width="2.5"/>
+            <!-- Claws -->
+            <path d="M 285 425 L 280 432 M 295 425 L 295 433 M 305 425 L 310 432" stroke-width="1.5"/>
+            <path d="M 240 425 L 235 432 M 250 425 L 250 433 M 260 425 L 265 432" stroke-width="1.5"/>
+            <!-- Skin texture -->
+            <path d="M 260 220 Q 275 215 290 220" stroke-width="1" opacity="0.4"/>
+            <path d="M 300 250 Q 320 245 340 252" stroke-width="1" opacity="0.4"/>
+            <path d="M 270 280 Q 290 275 310 282" stroke-width="1" opacity="0.4"/>
+            <!-- Ground -->
+            <path d="M 150 445 Q 250 442 350 445" stroke-width="1.2" opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="latin">Tyrannosaurus rex normandiae · «der König der Klippen»</div>
+    </div>
+
+    <div class="card-content">
+      <div class="country">Frankreich · Normandie · Falaises d'Étretat</div>
+      <h2>Le Donjon — Domaine Saint Clair</h2>
+      <div class="location">Schlosshotel auf dem Hügel über Étretats Kreidefelsen</div>
+      <p class="pitch">
+        Der <strong>theatralische Pick</strong>: ein Belle-Époque-Manor, in dem jedes der 25 Zimmer nach einem Künstler benannt ist (Monet, Flaubert, Sarah Bernhardt). Gourmet-Restaurant, Rooftop-Jacuzzi mit 360°-Blick auf den Ärmelkanal und die Klippen, Aussenpool. Étretat selbst ist der <strong>Showstopper</strong> — die weissen Bögen, die Monet malte, zehn Minuten zu Fuss bergab.
+      </p>
+
+      <div class="data-grid">
+        <div class="data-cell">
+          <div class="data-label">Entfernung</div>
+          <div class="data-value">542<span class="data-unit"> km</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">Fahrzeit</div>
+          <div class="data-value">~5<span class="data-unit"> Std</span></div>
+        </div>
+        <div class="data-cell">
+          <div class="data-label">2 Nächte · 2 Pers.</div>
+          <div class="data-value">240<span class="data-unit"> – 360 €</span></div>
+        </div>
+      </div>
+
+      <div class="vibes">
+        <span class="vibe-tag">Schloss</span>
+        <span class="vibe-tag">Klippen</span>
+        <span class="vibe-tag">Gourmet</span>
+        <span class="vibe-tag">Rooftop-Jacuzzi</span>
+        <span class="vibe-tag">Längste Anreise</span>
+      </div>
+
+      <a class="map-btn" href="https://www.google.com/maps/place/Le+Donjon+-+Domaine+Saint+Clair/@49.6682999,0.5064415,7z/" target="_blank" rel="noopener">Auf Karte ansehen</a>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section class="comparison-section">
+  <div class="section-header">
+    <p class="kicker">Felddaten · Im Vergleich</p>
+    <h2>Die <em>Expeditions-Matrix</em></h2>
+  </div>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Expedition</th>
+        <th>Urzeitwesen</th>
+        <th>Ab Lux.</th>
+        <th>Fahrzeit</th>
+        <th>2 Nächte · 2 Pers.</th>
+        <th>Highlight</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name-cell">Hôtel de la Jamagne<span class="sub">Gérardmer, FR</span></td>
+        <td>🦕 Brachiosaurus</td>
+        <td class="dist-cell"><span class="bar" style="width: 48px;"></span>260 km</td>
+        <td class="dist-cell">~3 Std</td>
+        <td class="price-cell">240 – 300 €</td>
+        <td>Am nächsten. See + Spa.</td>
+      </tr>
+      <tr>
+        <td class="name-cell">Beachfront Boutiquehotel<span class="sub">Knokke, BE</span></td>
+        <td>🦎 Mosasaurus</td>
+        <td class="dist-cell"><span class="bar" style="width: 65px;"></span>354 km</td>
+        <td class="dist-cell">~3,5 Std</td>
+        <td class="price-cell">300 – 600 €</td>
+        <td>Boutique direkt am Meer.</td>
+      </tr>
+      <tr>
+        <td class="name-cell">Hotel Hoeri am Bodensee<span class="sub">Gaienhofen, DE</span></td>
+        <td>🦕 Plesiosaurus</td>
+        <td class="dist-cell"><span class="bar" style="width: 74px;"></span>400 km</td>
+        <td class="dist-cell">~4,5 Std</td>
+        <td class="price-cell">~340 €</td>
+        <td>Grosser Wellness-Spa am See.</td>
+      </tr>
+      <tr>
+        <td class="name-cell">Le Touquet–Paris-Plage<span class="sub">FR, Côte d'Opale</span></td>
+        <td>🦅 Pteranodon</td>
+        <td class="dist-cell"><span class="bar" style="width: 68px;"></span>340–400 km</td>
+        <td class="dist-cell">~4 Std</td>
+        <td class="price-cell">240 – 500 €</td>
+        <td>Ganze schicke Strandstadt.</td>
+      </tr>
+      <tr>
+        <td class="name-cell">Le Donjon — Saint Clair<span class="sub">Étretat, FR</span></td>
+        <td>🦖 T. rex</td>
+        <td class="dist-cell"><span class="bar" style="width: 100px;"></span>542 km</td>
+        <td class="dist-cell">~5 Std</td>
+        <td class="price-cell">240 – 360 €</td>
+        <td>Schloss über den Klippen.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="text-align:center; margin-top: 32px; font-family: 'Special Elite', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber-deep); opacity: 0.7;">
+    Entfernungen &amp; Zeiten sind Schätzungen ab Luxemburg · Preise für 22.–24. Mai 2026 — vor Buchung live prüfen
+  </p>
+</section>
+
+<!-- ============ VERDICT ============ -->
+<section class="verdict">
+  <div class="verdict-content">
+    <p class="kicker">Eine bescheidene Empfehlung</p>
+    <h2>Wenn es <em>mein</em> Wochenende wäre…</h2>
+    <p>
+      Bei Abfahrt am Freitagabend und Rückkehr am Sonntagnachmittag fressen zwei Kandidaten halb das Wochenende auf der Autobahn. Wunderbare Orte, falsches Timing — Étretat und der Bodensee lohnen sich besser mit einem Tag mehr.
+    </p>
+    <p>
+      Es bleiben drei echte Anwärter. Le Touquet ist der sichere Romantik-Pick. Knokke ist der Strand-Liebhaber-Pick. Aber für ein spontanes, reibungsloses «wir haben wirklich entspannt»-Wochenende — da gibt es einen klaren Favoriten.
+    </p>
+
+    <div class="winner-card">
+      <div class="badge">Mein<br>Tipp</div>
+      <div>
+        <div class="pick-name">🦕 Hôtel de la Jamagne — Gérardmer</div>
+        <div class="pick-why">Drei Stunden und du bist am See in den Vogesen. Spa am Freitagabend, Abendessen im Hotel, der See am Samstag, Sonntagmorgen entspannt heimfahren. Am nächsten, am wärmsten, das einfachste Ja — aber du entscheidest!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p class="signoff">
+    Gemacht mit Zuneigung, Fossilien und viel kartografischer Recherche.<br>
+    Jetzt gib <strong>ihr</strong> das Handy.
+  </p>
+  <p class="fineprint">Expedition Jurassique · Bulletin 001 · Luxemburg, Mai 2026</p>
+</footer>
+
+<script>
+  // Staggered fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
